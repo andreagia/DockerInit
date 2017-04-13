@@ -1,0 +1,11 @@
+FROM andreagia/ambertools-saas
+MAINTAINER Andrea Giachetti <giachetti@cerm.unifi.it>
+LABEL description="Container image to run AmberTools v16. Installed Oneclient"
+
+ENV PROVIDER_HOSTNAME=PROVIDER2
+ENV ONECLIENT_AUTHORIZATION_TOKEN='TOKEN1'
+ENV MOUNT_POINT=/tmp/onedata
+RUN mkdir /tmp/onedata
+RUN git clone https://github.com/andreagia/MDS2.git
+WORKDIR /tmp/mds2/MDS2/MDS2
+CMD  mvn jetty:run
