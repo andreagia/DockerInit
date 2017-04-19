@@ -1,7 +1,7 @@
 FROM andreagia/ambertools-saas
 MAINTAINER Andrea Giachetti <giachetti@cerm.unifi.it>
 LABEL description="Container image to run AmberTools v16. Installed Oneclient"
-RUN apt-get install ngnix -y 
+RUN apt-get install nginx -y 
 
 ADD mds2.key.pem ./
 ADD mds2.cert.pem ./
@@ -9,7 +9,6 @@ ADD nginx.conf ./
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY mds2.key.pem /etc/ssl/private/
 COPY mds2.cert.pem /etc/ssl/certs/
-RUN /etc/init.d/nginx restart
 
 ENV PROVIDER_HOSTNAME=PROVIDER2
 ENV ONECLIENT_AUTHORIZATION_TOKEN='TOKEN1'
@@ -17,4 +16,4 @@ ENV MOUNT_POINT=/tmp/onedata
 RUN mkdir /tmp/onedata
 RUN git clone https://github.com/andreagia/MDS2.git
 WORKDIR /tmp/mds2/MDS2/MDS2
-CMD  mvn jetty:run
+CMD /etc/init.d/nginx restart; mvn jetty:run

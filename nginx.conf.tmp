@@ -1,7 +1,7 @@
 server {
   listen        443 ssl;
   server_name   WANIP;
-  access_log   /var/log/nginx/iam_local_io.access.log  combined;
+  access_log   /var/log/nginx/mds2_local_io.access.log  combined;
 
   ssl on;
   ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
