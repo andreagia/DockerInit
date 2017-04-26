@@ -6,7 +6,8 @@ ENV PROVIDER_HOSTNAME=PROVIDER2
 ENV ONECLIENT_AUTHORIZATION_TOKEN='TOKEN1'
 ENV MOUNT_POINT=/tmp/onedata
 RUN mkdir /tmp/onedata
+WORKDIR /opt/mds2/
 RUN git clone https://github.com/andreagia/MDS2.git
-WORKDIR /tmp/mds2/MDS2/MDS2
+WORKDIR /opt/mds2/MDS2
 ADD jetty.keystore ./
 CMD  mvn jetty:run
