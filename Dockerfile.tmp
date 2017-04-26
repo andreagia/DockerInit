@@ -8,4 +8,5 @@ ENV MOUNT_POINT=/tmp/onedata
 RUN mkdir /tmp/onedata
 RUN git clone https://github.com/andreagia/MDS2.git
 WORKDIR /tmp/mds2/MDS2/MDS2
+ADD jetty.keystore ./
 CMD  mvn jetty:run
