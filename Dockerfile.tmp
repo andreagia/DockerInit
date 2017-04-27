@@ -6,6 +6,7 @@ ENV PROVIDER_HOSTNAME=PROVIDER2
 ENV ONECLIENT_AUTHORIZATION_TOKEN='TOKEN1'
 ENV MOUNT_POINT=/tmp/onedata
 ENV WANIP ${WANIP}
+ENV SECHASH ${SECHASH}
 RUN mkdir /tmp/onedata
 WORKDIR /opt/mds2/
 RUN git clone https://github.com/andreagia/MDS2.git
