@@ -16,5 +16,5 @@ sed "s/sechash1/$SECHASH/g" "Dockerfile" > ./tmp && mv ./tmp Dockerfile
 
 docker build -t saas .
 #docker run -p 8080:8080 saas
-docker run -p 443:8443 saas
+docker run -p 443:8443 -p 8080:8080 saas
 
