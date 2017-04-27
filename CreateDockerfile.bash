@@ -12,7 +12,7 @@ WANIP=$(curl http://checkip.amazonaws.com)
 sed "s/TOKEN1/$1/g" "Dockerfile.tmp" > ./tmp && mv ./tmp Dockerfile
 sed "s/PROVIDER2/$2/g" "Dockerfile" > ./tmp && mv ./tmp Dockerfile
 
-docker build -t saas .
+docker build --build-arg WANIP=$WANIP -t saas .
 #docker run -p 8080:8080 saas
-docker run -e SECHASH=$SECHASH -e WANIP=$WANIP -p 443:8443 saas
+docker run -e SECHASH=$SECHASH -p 443:8443 saas
 
