@@ -1,4 +1,4 @@
-FROM andreagia/ambertools-saas
+FROM indigodatacloudapps/ambertools-oneclient
 MAINTAINER Andrea Giachetti <giachetti@cerm.unifi.it>
 LABEL description="Container image to run AmberTools v16. Installed Oneclient"
 
@@ -13,4 +13,4 @@ RUN git clone https://github.com/andreagia/MDS2.git
 WORKDIR /opt/mds2/MDS2
 RUN echo "login.token=$SECHASH" > ./src/main/webapp/resources/application.properties
 RUN keytool -genkey -alias jetty -keyalg RSA -keystore ./jetty.keystore -storepass secret -keypass secret -dname "CN=$WANIP"
-CMD  mvn jetty:run
+CMD oneclient --no_check_certificate --authentication  token $MOUNT_POINT; mvn jetty:run
