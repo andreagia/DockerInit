@@ -9,7 +9,7 @@ ENV WANIP=wanip1
 ENV SECHASH=sechash1
 RUN mkdir /tmp/onedata
 WORKDIR /opt/mds2/
-RUN git clone https://github.com/andreagia/MDS2.git
+RUN git clone https://github.com/andreagia/webclientdyn.git
 WORKDIR /opt/mds2/MDS2
 RUN echo "login.token=$SECHASH" > ./src/main/webapp/resources/application.properties
 RUN keytool -genkey -alias jetty -keyalg RSA -keystore ./jetty.keystore -storepass secret -keypass secret -dname "CN=$WANIP"
