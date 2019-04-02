@@ -1,4 +1,4 @@
-FROM indigodatacloudapps/ambertools-oneclient
+FROM andreagia/ambertools18_1810
 MAINTAINER Andrea Giachetti <giachetti@cerm.unifi.it>
 LABEL description="Container image to run AmberTools v16. Installed Oneclient"
 
