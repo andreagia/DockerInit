@@ -12,7 +12,7 @@ export WANIP=$(curl http://checkip.amazonaws.com)
 #ONEDATA Confifuration removed
 #sed "s/TOKEN1/$1/g" "Dockerfile.tmp" > ./tmp && mv ./tmp Dockerfile
 #sed "s/PROVIDER2/$2/g" "Dockerfile" > ./tmp && mv ./tmp Dockerfile
-sed "s/wanip1/$WANIP/g" "Dockerfile" > ./tmp && mv ./tmp Dockerfile
+sed "s/wanip1/$WANIP/g" "Dockerfile.tmp" > ./tmp && mv ./tmp Dockerfile
 sed "s/sechash1/$SECHASH/g" "Dockerfile" > ./tmp && mv ./tmp Dockerfile
 
 docker build -t saas .
