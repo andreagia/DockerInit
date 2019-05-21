@@ -14,5 +14,7 @@ WORKDIR /opt/mds2/webclientdyn
 RUN echo "login.token=$SECHASH" > ./src/main/webapp/resources/application.properties
 RUN keytool -genkey -alias jetty -keyalg RSA -keystore ./jetty.keystore -storepass secret -keypass secret -dname "CN=$WANIP"
 RUN bash -c "sh /root/run.sh $MOUNT_POINT & sleep 5 && tail -F /dev/null"
+ENTRYPOINT []
 #CMD mvn jetty:run
-CMD mvn jetty:run
+#CMD mvn jetty:runa
+CMD /bin/sh -c "oneclient /mnt/oneclient && mvn jetty:run"
