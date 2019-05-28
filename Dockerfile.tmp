@@ -18,4 +18,4 @@ ENTRYPOINT []
 #RUN mkdir /tmp/onedata
 #CMD mvn jetty:run
 #CMD mvn jetty:runa
-CMD /bin/sh -c "oneclient /mnt/onedata && mvn jetty:run"
+CMD /bin/sh -c "oneclient /tmp/onedata && mvn jetty:run"
