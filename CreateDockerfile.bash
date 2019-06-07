@@ -10,7 +10,9 @@ export WANIP=$(curl http://checkip.amazonaws.com)
 #openssl req -new -nodes -x509 -subj "/C=IT/ST=Oregon/L=Florence/O=IT/CN=$WANIP" -days 3650 -keyout ./mds2.key.pem -out ./mds2.cert.pem -extensions v3_ca 
 #sed "s/WANIP/$WANIP/g" "nginx.conf.tmp" > ./tmp && mv ./tmp nginx.conf
 #ONEDATA Confifuration removed
-TK_LENGTH=${#TOKEN1}
+TK=$1
+echo $TK
+TK_LENGTH=${#TK}
 echo $TK_LENGTH
 if [ $TK_LENGTH -gt 5 ]; then
     echo "TOKEN PRESENT"
